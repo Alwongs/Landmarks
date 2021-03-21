@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3307
--- Время создания: Мар 15 2021 г., 19:24
+-- Время создания: Мар 21 2021 г., 22:38
 -- Версия сервера: 10.3.22-MariaDB
 -- Версия PHP: 7.4.5
 
@@ -46,7 +46,7 @@ INSERT INTO `cities` (`id`, `country_id`, `title`, `slug`, `created_by`, `modifi
 (1, 3, 'Paris', 'paris-1003211715', 1, NULL, '2021-03-10 13:15:46', '2021-03-10 13:15:46'),
 (2, 2, 'Marburg', 'marburg-1003211716', 1, NULL, '2021-03-10 13:16:19', '2021-03-10 13:16:19'),
 (3, 2, 'Berlin', 'berlin-1003211716', 1, NULL, '2021-03-10 13:16:35', '2021-03-10 13:16:35'),
-(4, 4, 'San-Teodoro', 'san-teodoro-1003211717', 1, NULL, '2021-03-10 13:17:03', '2021-03-10 13:17:03'),
+(4, 4, 'San Teodoro', 'san-teodoro-1003211717', 1, NULL, '2021-03-10 13:17:03', '2021-03-10 13:17:03'),
 (5, 1, 'Moscow', 'moscow-1003211717', 1, NULL, '2021-03-10 13:17:24', '2021-03-10 13:17:24'),
 (6, 1, 'Samara', 'samara-1003211717', 1, NULL, '2021-03-10 13:17:40', '2021-03-10 13:17:40'),
 (7, 1, 'Ulyanovsk', 'ulyanovsk-1003211717', 1, NULL, '2021-03-10 13:17:57', '2021-03-10 13:17:57'),
@@ -79,7 +79,8 @@ INSERT INTO `comments` (`id`, `place_id`, `description`, `created_by`, `modified
 (19, 4, 'I am guest here', 3, NULL, '2021-03-13 10:38:56', '2021-03-13 10:38:56'),
 (20, 7, 'It was early moning. We just arrived to the airport and trying to rent a bus', 1, NULL, '2021-03-13 11:12:49', '2021-03-13 11:12:49'),
 (21, 8, 'I was here in october 2017 when I travelled from Europe', 1, NULL, '2021-03-14 13:17:43', '2021-03-14 13:17:43'),
-(22, 8, 'Vasya was here! ha ha ha... )))', 3, NULL, '2021-03-14 13:18:49', '2021-03-14 13:18:49');
+(22, 8, 'Vasya was here! ha ha ha... )))', 3, NULL, '2021-03-14 13:18:49', '2021-03-14 13:18:49'),
+(23, 4, 'one more comment', 3, NULL, '2021-03-17 11:11:01', '2021-03-17 11:11:01');
 
 -- --------------------------------------------------------
 
@@ -107,18 +108,7 @@ INSERT INTO `countries` (`id`, `title`, `slug`, `created_by`, `modified_by`, `cr
 (3, 'France', 'france-1003211714', 1, NULL, '2021-03-10 13:14:48', '2021-03-10 13:14:48'),
 (4, 'Italy', 'italy-1003211714', 1, NULL, '2021-03-10 13:14:55', '2021-03-10 13:14:55'),
 (5, 'Poland', 'poland-1003211715', 1, NULL, '2021-03-10 13:15:08', '2021-03-10 13:15:08'),
-(6, 'The UK', 'the-uk-1003211715', 1, NULL, '2021-03-10 13:15:16', '2021-03-10 13:15:16'),
-(7, 'The USA', 'the-usa-1003211715', 1, NULL, '2021-03-10 13:15:24', '2021-03-10 13:15:24'),
-(8, 'Japan', 'japan-1003211715', 1, NULL, '2021-03-10 13:15:33', '2021-03-10 13:15:33'),
-(9, 'Angola', 'angola-1303211728', 1, NULL, '2021-03-13 13:28:44', '2021-03-13 13:28:44'),
-(10, 'Argentina', 'argentina-1303211728', 1, NULL, '2021-03-13 13:28:51', '2021-03-13 13:28:51'),
-(11, 'Brazil', 'brazil-1303211728', 1, NULL, '2021-03-13 13:28:59', '2021-03-13 13:28:59'),
-(12, 'Canada', 'canada-1303211729', 1, NULL, '2021-03-13 13:29:06', '2021-03-13 13:29:06'),
-(13, 'China', 'china-1303211729', 1, NULL, '2021-03-13 13:29:18', '2021-03-13 13:29:18'),
-(14, 'Belarus', 'belarus-1303211729', 1, NULL, '2021-03-13 13:29:45', '2021-03-13 13:29:45'),
-(15, 'Ukraine', 'ukraine-1303211729', 1, NULL, '2021-03-13 13:29:52', '2021-03-13 13:29:52'),
-(16, 'Australia', 'australia-1303211730', 1, NULL, '2021-03-13 13:30:40', '2021-03-13 13:30:40'),
-(17, 'Spane', 'spane-1303211730', 1, NULL, '2021-03-13 13:30:53', '2021-03-13 13:30:53');
+(18, 'Austria', 'austria-1703211601', 1, NULL, '2021-03-17 12:01:20', '2021-03-17 12:01:20');
 
 -- --------------------------------------------------------
 
@@ -175,22 +165,6 @@ CREATE TABLE `pictures` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Дамп данных таблицы `pictures`
---
-
-INSERT INTO `pictures` (`id`, `place_id`, `title`, `image`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
-(6, 4, 'default', 'uploads/T6kTgtrQ8HpBKj0EJqe6u5s2nKUjUW6IfGhBJTEc.jpg', NULL, NULL, '2021-03-13 10:21:05', '2021-03-13 10:21:05'),
-(7, 4, 'default', 'uploads/3LtzHDlUzB4NoIQWB0YNwOmiSAkgT2wXYYvw8bSg.jpg', NULL, NULL, '2021-03-13 10:21:19', '2021-03-13 10:21:19'),
-(8, 4, 'default', 'uploads/pQqQUhU8NN2RMvHOsKpMvmtpjyc6pxidIr1hJSv3.jpg', NULL, NULL, '2021-03-13 10:21:38', '2021-03-13 10:21:38'),
-(9, 4, 'default', 'uploads/vGlR4Sx4Cjlie1H5kFn0p9Ht7JeAWKw53Jp1LRHy.jpg', NULL, NULL, '2021-03-13 10:21:54', '2021-03-13 10:21:54'),
-(10, 4, 'default', 'uploads/u451AuOcW8CVwYA2TsMiy4V6ksss1pYLOL0hotfg.jpg', NULL, NULL, '2021-03-13 10:22:21', '2021-03-13 10:22:21'),
-(11, 7, 'default', 'uploads/dMxks02iiKEzkfdeMXgZc6jGgjlYkOZnflwRH9lF.jpg', NULL, NULL, '2021-03-13 11:09:34', '2021-03-13 11:09:34'),
-(12, 7, 'default', 'uploads/rFTqNhI9bPiKoGGGhaiZZE5BD5zdfKnzQDnve2aR.jpg', NULL, NULL, '2021-03-13 11:10:40', '2021-03-13 11:10:40'),
-(13, 7, 'default', 'uploads/p1G3O15SN6hanbWqEXHBSknu4AVKsoYHOugU05UD.jpg', NULL, NULL, '2021-03-13 11:10:48', '2021-03-13 11:10:48'),
-(14, 8, 'default', 'uploads/zkc23zOhiDeDMBlGZu7n0Vj6cmgiaOcGoedvJiHz.jpg', NULL, NULL, '2021-03-14 12:58:40', '2021-03-14 12:58:40'),
-(15, 8, 'default', 'uploads/xS9sSpVcJhFVfx6z9QZqhhF67FLT1dAeQ7ITXV3V.jpg', NULL, NULL, '2021-03-14 13:00:32', '2021-03-14 13:00:32');
-
 -- --------------------------------------------------------
 
 --
@@ -218,7 +192,8 @@ INSERT INTO `places` (`id`, `city_id`, `title`, `slug`, `description`, `created_
 (4, 4, 'Beaches', 'beaches-1203211844', 'There are many beaches in San-Teodoro. I don\'t remember their names. I just want to share some pictures.', 1, NULL, '2021-03-12 14:44:53', '2021-03-12 14:44:53'),
 (7, 9, 'Airport', 'airport-1303211508', 'This airport was the gate to Italy for me in october 2017', 1, NULL, '2021-03-13 11:08:37', '2021-03-13 11:08:37'),
 (8, 5, 'Moscow-City', 'moscow-city-1403211657', 'The block of skyscrapers', 1, NULL, '2021-03-14 12:57:28', '2021-03-14 12:57:28'),
-(9, 2, 'Rathaus', 'rathaus-1503210613', 'The central square in Marburg', 1, NULL, '2021-03-15 02:13:38', '2021-03-15 02:13:38');
+(9, 2, 'Rathaus', 'rathaus-1503210613', 'The central square in Marburg', 1, NULL, '2021-03-15 02:13:38', '2021-03-15 02:13:38'),
+(10, 7, 'Imperator Bridge', 'imperator-bridge-2103211228', NULL, 1, NULL, '2021-03-21 08:28:27', '2021-03-21 08:28:27');
 
 -- --------------------------------------------------------
 
@@ -320,13 +295,13 @@ ALTER TABLE `cities`
 -- AUTO_INCREMENT для таблицы `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT для таблицы `countries`
 --
 ALTER TABLE `countries`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT для таблицы `migrations`
@@ -338,13 +313,13 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT для таблицы `pictures`
 --
 ALTER TABLE `pictures`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT для таблицы `places`
 --
 ALTER TABLE `places`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT для таблицы `users`
