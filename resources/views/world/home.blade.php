@@ -2,6 +2,8 @@
 
 @section('content')
 
+
+
 <div class="container">
     <!-- ------------------------ Image ------------------------ -->
     <div class="row">
@@ -15,7 +17,7 @@
             @forelse ($countries->chunk(6) as $chunk)
             <div class="row">
                 @foreach ($chunk as $country)
-                <div class="col item btn btn-outline-primary m-1">
+                <div class="col item btn btn-outline-primary m-1" onclick="location.href='{{ route('cities', $country->slug) }}'">
                     <a class="btn" href="{{ route('cities', $country->slug) }}">
                         <h4>{{ $country->title }}</h4>
                     </a>

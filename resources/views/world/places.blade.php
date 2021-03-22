@@ -27,9 +27,9 @@
     <div class="row my-5">
         <div class="col-sm-12">
             @forelse ($places->chunk(6) as $chunk)
-            <div class="row">
+            <div class="row mx-1">
                 @foreach ($chunk as $place)
-                <div class="col item btn btn-outline-primary m-1">
+                <div class="col item btn btn-outline-primary m-1" onclick="location.href='{{ route('onePlace', $place->slug) }}'">
                     <a class="btn" href="{{ route('onePlace', $place->slug) }}">
                         <h4>{{ $place->title }}</h4>
                     </a>

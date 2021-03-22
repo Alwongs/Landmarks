@@ -40,7 +40,7 @@
                     <ul class="nav navbar-nav">
 
                         <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" href="{{ route('countries') }}">Menu</a>
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" href="#">Menu</a>
 
                             <ul class="dropdown-menu" role="menu">
                                 <li class="nav-item">
