@@ -40,7 +40,7 @@
 
                     <!--  ----------------------- description ---------------------- -->
 
-                    <div class="description">
+                    <div class="description mx-2 my-2">
                         @if($place->description == null)
                         <h2 class="text-center">No description</h2>
                         @else
@@ -51,38 +51,40 @@
 
 
                 <div class="col-sm-3">
-                    <!--  ------------------- form ---------------------- -->
-                    <div class="row">
-                        <div class="col-sm-12">
-                            @guest
-                            <p class="text-center">
-                                <font style="opacity:.4">
-                                    <i>Log in to upload a picture</i>
-                                </font>
-                            </p>
-                            @else
-                            <form class="form-control" action="{{ route('world.picture.create') }}" method="post" enctype="multipart/form-data">
-                                {{ csrf_field() }}
-                                <label for=""><b>Add photo..</b></label>
-                                <input type="hidden" name="place_id" value="{{ $place->id }}">
-                                <div class="form-group">
-                                    <input type="file" class="form-control" name="image" required>
-                                </div>
-                                <input class="btn btn-primary" type="submit" value="Upload">
-                            </form>
-                            @endguest
+                    <div class="jumbotron my-4 py-1">
+                        <!-- ----------------------- Add photos --------------------- -->
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <a class="badge-light" href="{{ route('world.picture.index', $place->id) }}">
+                                    <div class="my-1">
+                                        <p>
+                                        <h5 class="text-center">look more photos..</h5>
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                    <!-- ----------------------- Add photos --------------------- -->
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <a class="badge-light" href="{{ route('world.picture.index', $place->id) }}">
-                                <div class="jumbotron my-5">
-                                    <p>
-                                    <h5 class="text-center">look more photos..</h5>
-                                    </p>
-                                </div>
-                            </a>
+                        <!--  ------------------- form ---------------------- -->
+                        <div class="row">
+                            <div class="col-sm-12">
+                                @guest
+                                <p class="text-center">
+                                    <font style="opacity:.4">
+                                        <i>Log in to add your picture</i>
+                                    </font>
+                                </p>
+                                @else
+                                <form class="form-control" action="{{ route('world.picture.create') }}" method="post" enctype="multipart/form-data">
+                                    {{ csrf_field() }}
+                                    <label for=""><b>Add photo..</b></label>
+                                    <input type="hidden" name="place_id" value="{{ $place->id }}">
+                                    <div class="form-group">
+                                        <input type="file" class="form-control" name="image" required>
+                                    </div>
+                                    <input class="btn btn-primary" type="submit" value="Upload">
+                                </form>
+                                @endguest
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -99,7 +101,7 @@
                         <input type="hidden" name="slug" value="{{ $place->slug }}">
                         <input type="hidden" name="place_id" value="{{ $place->id }}">
                         @guest
-                        <input type="hidden" name="created_by" value="3">
+                        <input type="hidden" name="created_by" value="1">
                         @else
                         <input type="hidden" name="created_by" value="{{ Auth::id() }}">
                         @endguest
@@ -113,9 +115,14 @@
                 <div class="col-sm-12">
                     @isset($comments)
                     @forelse ($comments as $comment)
+
                     <div class="row">
                         <div class="col-cm-12">
+                            @if(App\User::find($comment->created_by) != null)
                             <a href="#"><b>{{ App\User::find($comment->created_by)->name }} </b></a>
+                            @else
+                            <font color="grey" style="opacity: .4;"><del><b>User deleted</b></del></font>
+                            @endif
                             <small>
                                 <font style="opacity:.4"> {{ $comment->created_at }}</font>
                             </small>
@@ -123,6 +130,7 @@
                         </div>
                     </div>
                     <br>
+
                     @empty
                     <div class="row">
                         <div class="col-cm-12 mx-auto">

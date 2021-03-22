@@ -46,6 +46,15 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+
+
+
+
+
+
+
+
+
 Route::get('/storagelink', function () {
   Artisan::call('storage:link');
   echo 'linked probably';
