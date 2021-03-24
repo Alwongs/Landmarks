@@ -21,6 +21,15 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
+    <style>
+        .outblock:hover .textin {
+            color: white;
+        }
+
+        .outblock {
+            background-color: lightgoldenrodyellow;
+        }
+    </style>
 
 </head>
 

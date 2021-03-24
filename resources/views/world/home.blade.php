@@ -17,9 +17,9 @@
             @forelse ($countries->chunk(6) as $chunk)
             <div class="row">
                 @foreach ($chunk as $country)
-                <div class="col item btn btn-outline-primary m-1" onclick="location.href='{{ route('cities', $country->slug) }}'">
+                <div class="col item btn btn-outline-primary m-1 outblock" onclick="location.href='{{ route('cities', $country->slug) }}'">
                     <a class="btn" href="{{ route('cities', $country->slug) }}">
-                        <h4>{{ $country->title }}</h4>
+                        <h4 class="textin">{{ $country->title }}</h4>
                     </a>
                 </div>
                 @endforeach
