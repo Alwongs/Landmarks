@@ -9,6 +9,13 @@
 @section('content')
 
 <div class="container">
+
+    @component('world.components.breadcrumb')
+    @slot('home') Home @endslot
+    @slot('country') {{ $country->title }} @endslot
+    @slot('countrySlug') {{ $country->slug }} @endslot
+    @endcomponent
+
     <!-- ------------------------ title ------------------------ -->
     <!--
     <div class="row">
@@ -17,6 +24,7 @@
         </div>
     </div>
     -->
+
     <!-- ------------------------ Image ------------------------ -->
     <div class="row">
         <div class="col-sm-12 text-center">

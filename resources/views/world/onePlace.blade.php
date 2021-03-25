@@ -15,6 +15,17 @@
 @endif
 
 <div class="container">
+
+    @component('world.components.breadcrumb')
+    @slot('home') Home @endslot
+    @slot('country') {{ $place->city->country->title }} @endslot
+    @slot('countrySlug') {{ $place->city->country->slug }} @endslot
+    @slot('city') {{ $place->city->title }} @endslot
+    @slot('citySlug') {{ $place->city->slug }} @endslot
+    @slot('place') {{ $place->title }} @endslot
+    @endcomponent
+
+
     <!--
     <div class="row">
         <div class="col-sm-12">
@@ -105,7 +116,7 @@
                         @else
                         <input type="hidden" name="created_by" value="{{ Auth::id() }}">
                         @endguest
-                        <input type="submit" class="btn btn-primary" value="Send" class="form-control">
+                        <input type="submit" class="btn btn-primary m-1" value="Send" class="form-control">
                     </form>
                 </div>
             </div>

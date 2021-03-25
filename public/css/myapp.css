@@ -1,0 +1,11 @@
+.outblock:hover .textin {
+    color: white;
+}
+
+.outblock {
+    background-color: rgb(229, 243, 220);
+}
+
+.header-names {
+    color:rgb(0, 75, 161);
+}
