@@ -86,13 +86,13 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="py-2">
             @yield('content')
         </main>
         <footer>
             <hr>
             <p class="text-center">
-                2021. dev: <i>Alex M.</i>
+                2021. dev: <i>Alex M. email: Alwong@ya.ru</i>
             </p>
         </footer>
     </div>
