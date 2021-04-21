@@ -36,7 +36,7 @@
 
         <!-- ---------------------------------------------  Left-coloumn ------------------------------------------------- -->
 
-        <div class="col-sm-2 picture-list jumbotron mb-2 py-4 px-2">
+        <div class="col-sm-2  order-2 order-sm-2 order-lg-1 picture-list jumbotron mb-2 py-4 px-2">
             <!-- --------------- Add-picture --------------------- -->
             <div class="picture-form">
                 @guest
@@ -46,7 +46,8 @@
                     </font>
                 </p>
                 @else
-                <form class="form-control p-1" action="{{ route('world.picture.create') }}" method="post" enctype="multipart/form-data">
+
+                <form class="form-control bg-light p-1" action="{{ route('world.picture.create') }}" method="post" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <label for=""><b>Add photo..</b></label>
                     <input type="hidden" name="place_id" value="{{ $place->id }}">
@@ -55,9 +56,10 @@
                     </div>
                     <input class="btn btn-primary" type="submit" value="Upload">
                 </form>
+
                 @endguest
             </div>
-            <!-- --------------- Picture-list --------------------- -->
+            <!-- --------------- look more photos --------------------- -->
             <div class="look-more">
                 <a class="badge-light" href="{{ route('world.picture.index', $place->id) }}">
                     <div class="my-2 btn-outline-primary text-center py-2" style="overflow: hidden;">
@@ -67,6 +69,7 @@
                     </div>
                 </a>
             </div>
+            <!-- --------------- Picture-list --------------------- 
             <div class="picture-list">
                 @foreach($pictures as $picture)
                 <div class="btn p-0">
@@ -76,12 +79,13 @@
                 </div>
                 @endforeach
             </div>
+            -->
         </div>
 
 
         <!-- ---------------------------------------------  Middle-coloumn ------------------------------------------------- -->
 
-        <div class="col-sm-8">
+        <div class="col-sm-8  order-1 order-sm-1 order-lg-2">
             <!-- ---------------------- one big picture --------------------- -->
             <div class="picture text-center px-2">
                 @if(asset('/storage/uploads/place/' . $place->title . '.jpg') != null)
@@ -92,7 +96,7 @@
             </div>
 
             <!--  ----------------------- description ---------------------- -->
-            <div class="description mx-2 my-0 p-4">
+            <div class="description mx-2 my-0 py-3">
                 @if($place->description == null)
                 <h2 class="text-center">No description</h2>
                 @else
@@ -150,7 +154,7 @@
 
         <!-- --------------------------------------------- Right-coloumn ------------------------------------------------- -->
 
-        <div class="col-sm-2 place-list jumbotron mb-2 py-4 px-2">
+        <div class="col-sm-2  order-3 order-sm-3 order-lg-3 place-list jumbotron mb-2 py-4 px-2">
 
             <!-- ---------------- Place list ----------------- -->
             @foreach($place->city->places as $place)
